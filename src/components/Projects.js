@@ -261,7 +261,7 @@ const Projects = ({ onSectionChange }) => {
     <ProjectsSection id="projects" ref={ref}>
       <Container>
         <SectionTitle
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           animate={controls}
           variants={{
             visible: { opacity: 1, y: 0 }
@@ -272,7 +272,7 @@ const Projects = ({ onSectionChange }) => {
         </SectionTitle>
 
         <ProjectsGrid
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           animate={controls}
           variants={{
             visible: { opacity: 1, y: 0 }
@@ -282,7 +282,7 @@ const Projects = ({ onSectionChange }) => {
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 1, y: 30 }}
               animate={controls}
               variants={{
                 visible: { opacity: 1, y: 0 }

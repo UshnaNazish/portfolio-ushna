@@ -15,13 +15,14 @@ const ProjectsSection = styled.section`
   align-items: center;
   padding: 6rem 2rem;
   position: relative;
+  opacity: 1;
 
   @media (max-width: 768px) {
-    padding: 4rem 1.5rem;
+    opacity: 1;
   }
 
   @media (max-width: 480px) {
-    padding: 3rem 1rem;
+    opacity: 1;
   }
 `;
 
@@ -52,11 +53,13 @@ const ProjectsGrid = styled(motion.div)`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    opacity: 1;
   }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr; /* ✅ single column on phones */
     gap: 1rem;
+    opacity: 1;
   }
 `;
 
@@ -84,6 +87,7 @@ const ProjectImage = styled.div`
 
   @media (max-width: 480px) {
     height: 150px; /* ✅ smaller image on phones */
+    opacity: 1;
   }
 
   & img {
@@ -118,7 +122,8 @@ const ProjectContent = styled.div`
   padding: 1.25rem;
 
   @media (max-width: 480px) {
-    padding: 1rem;
+    
+    opacity: 1;
   }
 `;
 

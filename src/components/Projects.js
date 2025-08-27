@@ -10,11 +10,19 @@ import image5 from '../images/lvdagency.png';
 import image6 from '../images/venture.png';
 
 const ProjectsSection = styled.section`
-  min-height: 100vh;
+  min-height: auto; /* ✅ allow flexible height */
   display: flex;
   align-items: center;
   padding: 6rem 2rem;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const Container = styled.div`
@@ -24,7 +32,7 @@ const Container = styled.div`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -37,9 +45,19 @@ const SectionTitle = styled(motion.h2)`
 
 const ProjectsGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ✅ smaller min width */
   gap: 2rem;
   margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; /* ✅ single column on phones */
+    gap: 1rem;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -63,12 +81,10 @@ const ProjectImage = styled.div`
   height: 200px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  color: white;
-  opacity: 0.9;
+
+  @media (max-width: 480px) {
+    height: 150px; /* ✅ smaller image on phones */
+  }
 
   & img {
     width: 100%;
@@ -83,7 +99,12 @@ const ProjectImage = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
     animation: shimmer 3s infinite;
   }
 
@@ -94,11 +115,15 @@ const ProjectImage = styled.div`
 `;
 
 const ProjectContent = styled.div`
-  padding: 1.5rem;
+  padding: 1.25rem;
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.5rem;
@@ -107,7 +132,7 @@ const ProjectTitle = styled.h3`
 const ProjectDescription = styled.p`
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 1rem;
 `;
 
@@ -115,7 +140,7 @@ const ProjectTech = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 `;
 
 const TechTag = styled.span`
@@ -123,19 +148,19 @@ const TechTag = styled.span`
   color: #667eea;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 `;
 
 const ProjectLink = styled(motion.a)`
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -181,16 +206,16 @@ const Projects = ({ onSectionChange }) => {
       id: 1,
       title: 'E-Commerce Platform',
       description: 'A modern e-commerce platform built with WordPress, WooCommerce, and custom plugins...',
-      tech: ['WordPress', 'ElementorPro', 'WooCommerce', 'MailChimp', 'Wp Form 7' , 'Light Speed Cache' ],
-      image: image1, 
+      tech: ['WordPress', 'ElementorPro', 'WooCommerce', 'MailChimp', 'Wp Form 7', 'Light Speed Cache'],
+      image: image1,
       liveUrl: 'https://naeemfoods.cc/',
     },
     {
       id: 2,
       title: '3D Portfolio Website',
       description: 'An interactive 3D portfolio website using Three.js, TailwindCss, JavaScript, Motion.dev and React.js ...',
-      tech: ['React.js', 'Three.js', 'Framer Motion', 'TailwindCss' , 'Styled Components', 'node.js', 'JavaScript', 'JSX'],
-      image: image2, 
+      tech: ['React.js', 'Three.js', 'Framer Motion', 'TailwindCss', 'Styled Components', 'Node.js', 'JavaScript', 'JSX'],
+      image: image2,
       liveUrl: '#',
     },
     {
@@ -213,7 +238,7 @@ const Projects = ({ onSectionChange }) => {
       id: 5,
       title: 'Lehigh Valley Digital',
       description: 'A responsive and SEO-optimized website for a digital agency, built with clean, maintainable code and modern web practices.',
-      tech: ['BootStrap', 'JavaScript', 'JQuery', 'Three.js', 'PHP', 'MySQL', 'Microsoft Bookings', 'Microsoft Clarity' ],
+      tech: ['BootStrap', 'JavaScript', 'JQuery', 'Three.js', 'PHP', 'MySQL', 'Microsoft Bookings', 'Microsoft Clarity'],
       image: image5,
       liveUrl: 'https://www.lvd.agency/',
     },
@@ -221,7 +246,7 @@ const Projects = ({ onSectionChange }) => {
       id: 6,
       title: 'Venture X',
       description: 'A responsive and intuitive multi-location workspace site, built with clean HTML, CSS, JavaScript, and seamless UX for FAQs, booking, and membership offerings.',
-      tech: ['HTML5', 'CSS3', 'BootStrap', 'JavaScript',  'Google Maps API', 'Microsoft Clarity'],
+      tech: ['HTML5', 'CSS3', 'BootStrap', 'JavaScript', 'Google Maps API', 'Microsoft Clarity'],
       image: image6,
       liveUrl: 'https://vxlv.network/',
     }
@@ -252,7 +277,6 @@ const Projects = ({ onSectionChange }) => {
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
-              className="project-card"
               initial={{ opacity: 0, y: 30 }}
               animate={controls}
               variants={{
@@ -263,10 +287,7 @@ const Projects = ({ onSectionChange }) => {
               whileTap={{ scale: 0.98 }}
             >
               <ProjectImage>
-                {typeof project.image === 'string' && !project.image.endsWith('.png') && !project.image.endsWith('.jpg')
-                  ? project.image // emoji
-                  : <img src={project.image} alt={project.title} />
-                }
+                <img src={project.image} alt={project.title} />
               </ProjectImage>
               
               <ProjectContent>
@@ -283,6 +304,8 @@ const Projects = ({ onSectionChange }) => {
                   <ProjectLink
                     href={project.liveUrl}
                     className="primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

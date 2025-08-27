@@ -61,7 +61,7 @@ function App() {
         <About onSectionChange={handleSectionChange} />
         <Skills onSectionChange={handleSectionChange} />
         <Projects onSectionChange={handleSectionChange} />
-        <Contact onSectionChange={handleSectionChange} />
+       
       </MainContent>
       <CustomCursor />
     </AppContainer>
